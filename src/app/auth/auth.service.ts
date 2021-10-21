@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators'
 import { User } from './user.model';
 
@@ -18,6 +19,7 @@ export interface AuthResponse {
 })
 export class AuthService {
   public user:User;
+  public userSub=new Subject<User>();
 
   constructor(private http: HttpClient, private router:Router) { }
 
@@ -29,6 +31,7 @@ export class AuthService {
       response.idToken, 
       new Date( new Date().getTime()+ +response.expiresIn*1000 ) 
       );
+    this.userSub.next(this.user);  
     localStorage.setItem('user',JSON.stringify(this.user));  
   }
 

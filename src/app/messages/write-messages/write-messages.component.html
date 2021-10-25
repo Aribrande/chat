@@ -1,1 +1,14 @@
-<p>write-messages works!</p>
+<div class="col-md-12">
+    <div class="card mt-5">
+        <div class="card-header">Rašykite žinutes</div>
+        <div class="card-body">
+            <form (ngSubmit)="onPostMessage(forma)" #forma="ngForm">
+                <div class="mb-3">
+                    <label for="" class="form-label">Žinutės tekstas</label>
+                    <input type="text" class="form-control" ngModel name="text" required>
+                </div>
+                <button type="submit" class="btn btn-success" [disabled]="!forma.valid">Išsiųsti</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -62,11 +62,13 @@ export class AuthService {
     if (!user) return ;
     if (new Date(user.expires) < new Date()) return;
     this.user=new User(user.email, user.id,user.token,new Date(user.expires));
+    this.userSub.next(this.user);
     this.router.navigate(['/']);
   }
 
   logout(){
     this.user=null;
+    this.userSub.next(null);
     localStorage.removeItem('user');
     this.router.navigate(['/auth']);
   }

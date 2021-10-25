@@ -7,12 +7,18 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { AuthComponent } from './auth/auth.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeaderComponent } from './header/header.component';
+import { ReadMessagesComponent } from './messages/read-messages/read-messages.component';
+import { WriteMessagesComponent } from './messages/write-messages/write-messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AuthComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderComponent,
+    ReadMessagesComponent,
+    WriteMessagesComponent
   ],
   imports: [
     BrowserModule,

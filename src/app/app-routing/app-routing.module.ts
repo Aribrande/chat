@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from '../auth/auth.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { AuthGuard } from '../auth/auth.guard';
+import { ReadMessagesComponent } from '../messages/read-messages/read-messages.component';
+import { WriteMessagesComponent } from '../messages/write-messages/write-messages.component';
 
 const appRoutes:Routes=[
    { 
@@ -13,6 +15,15 @@ const appRoutes:Routes=[
    {
      path: '',
      component:DashboardComponent,
+     canActivate:[AuthGuard]
+   },
+   {
+     path: 'read-messages',
+     component:ReadMessagesComponent
+   },
+   {
+     path: 'write-messages',
+     component:WriteMessagesComponent,
      canActivate:[AuthGuard]
    }
 ];
